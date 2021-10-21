@@ -1,0 +1,194 @@
+1587
+[368, 503, 716]
+float32
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:4074: The name tf.nn.avg_pool is deprecated. Please use tf.nn.avg_pool2d instead.
+
+readenergyb_test3_all2p_backup4_backup2.py:146: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3], output=out)
+Model: "model_3"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_3 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_4 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_5 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+model_1 (Model)                 (None, 4, 150)       155200      input_3[0][0]
+                                                                 input_4[0][0]
+                                                                 input_5[0][0]
+__________________________________________________________________________________________________
+concatenate_3 (Concatenate)     (None, 4, 450)       0           model_1[1][0]
+                                                                 model_1[2][0]
+                                                                 model_1[3][0]
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 1800)         0           concatenate_3[0][0]
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 1800)         0           flatten_1[0][0]
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 200)          360200      dropout_1[0][0]
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 1000)         201000      dense_1[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 1000)         1001000     dense_2[0][0]
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 1)            1001        dense_3[0][0]
+==================================================================================================
+Total params: 1,718,401
+Trainable params: 1,718,301
+Non-trainable params: 100
+__________________________________________________________________________________________________
+2020-06-02 12:09:06.979699: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:422: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+Train on 1269 samples, validate on 318 samples
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:198: The name tf.summary.histogram is deprecated. Please use tf.compat.v1.summary.histogram instead.
+
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:200: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:203: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+Epoch 1/60
+1269/1269 [==============================] - 2s 2ms/step - loss: 0.1758 - mean_absolute_error: 0.4856 - val_loss: 0.0912 - val_mean_absolute_error: 0.3587
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:343: The name tf.Summary is deprecated. Please use tf.compat.v1.Summary instead.
+
+Epoch 2/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0826 - mean_absolute_error: 0.3172 - val_loss: 0.0868 - val_mean_absolute_error: 0.3082
+Epoch 3/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0782 - mean_absolute_error: 0.3084 - val_loss: 0.0743 - val_mean_absolute_error: 0.3004
+Epoch 4/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0679 - mean_absolute_error: 0.2805 - val_loss: 0.0735 - val_mean_absolute_error: 0.3081
+Epoch 5/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0616 - mean_absolute_error: 0.2654 - val_loss: 0.0725 - val_mean_absolute_error: 0.2872
+Epoch 6/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0531 - mean_absolute_error: 0.2431 - val_loss: 0.0632 - val_mean_absolute_error: 0.2693
+Epoch 7/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0602 - mean_absolute_error: 0.2590 - val_loss: 0.0601 - val_mean_absolute_error: 0.2697
+Epoch 8/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0585 - mean_absolute_error: 0.2568 - val_loss: 0.0674 - val_mean_absolute_error: 0.2727
+Epoch 9/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0516 - mean_absolute_error: 0.2343 - val_loss: 0.0568 - val_mean_absolute_error: 0.2653
+Epoch 10/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0493 - mean_absolute_error: 0.2367 - val_loss: 0.0573 - val_mean_absolute_error: 0.2564
+Epoch 11/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0509 - mean_absolute_error: 0.2366 - val_loss: 0.0508 - val_mean_absolute_error: 0.2385
+Epoch 12/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0480 - mean_absolute_error: 0.2272 - val_loss: 0.0629 - val_mean_absolute_error: 0.2693
+Epoch 13/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0487 - mean_absolute_error: 0.2291 - val_loss: 0.0520 - val_mean_absolute_error: 0.2374
+Epoch 14/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0502 - mean_absolute_error: 0.2355 - val_loss: 0.0535 - val_mean_absolute_error: 0.2429
+Epoch 15/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0427 - mean_absolute_error: 0.2124 - val_loss: 0.0460 - val_mean_absolute_error: 0.2227
+Epoch 16/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0375 - mean_absolute_error: 0.1937 - val_loss: 0.0432 - val_mean_absolute_error: 0.2178
+Epoch 17/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0343 - mean_absolute_error: 0.1863 - val_loss: 0.0480 - val_mean_absolute_error: 0.2234
+Epoch 18/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0349 - mean_absolute_error: 0.1847 - val_loss: 0.0492 - val_mean_absolute_error: 0.2266
+Epoch 19/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0341 - mean_absolute_error: 0.1826 - val_loss: 0.0516 - val_mean_absolute_error: 0.2330
+Epoch 20/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0337 - mean_absolute_error: 0.1870 - val_loss: 0.0567 - val_mean_absolute_error: 0.2520
+Epoch 21/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0311 - mean_absolute_error: 0.1762 - val_loss: 0.0458 - val_mean_absolute_error: 0.2166
+Epoch 22/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0318 - mean_absolute_error: 0.1782 - val_loss: 0.0643 - val_mean_absolute_error: 0.2620
+Epoch 23/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0345 - mean_absolute_error: 0.1883 - val_loss: 0.0560 - val_mean_absolute_error: 0.2438
+Epoch 24/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0298 - mean_absolute_error: 0.1739 - val_loss: 0.0496 - val_mean_absolute_error: 0.2401
+Epoch 25/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0310 - mean_absolute_error: 0.1802 - val_loss: 0.0463 - val_mean_absolute_error: 0.2162
+Epoch 26/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0319 - mean_absolute_error: 0.1834 - val_loss: 0.0501 - val_mean_absolute_error: 0.2367
+Epoch 27/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0271 - mean_absolute_error: 0.1664 - val_loss: 0.0434 - val_mean_absolute_error: 0.2070
+Epoch 28/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0279 - mean_absolute_error: 0.1682 - val_loss: 0.0437 - val_mean_absolute_error: 0.2136
+Epoch 29/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0279 - mean_absolute_error: 0.1673 - val_loss: 0.0481 - val_mean_absolute_error: 0.2274
+Epoch 30/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0253 - mean_absolute_error: 0.1566 - val_loss: 0.0529 - val_mean_absolute_error: 0.2382
+Epoch 31/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0242 - mean_absolute_error: 0.1558 - val_loss: 0.0522 - val_mean_absolute_error: 0.2424
+Epoch 32/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0243 - mean_absolute_error: 0.1565 - val_loss: 0.0485 - val_mean_absolute_error: 0.2312
+Epoch 33/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0244 - mean_absolute_error: 0.1568 - val_loss: 0.0471 - val_mean_absolute_error: 0.2148
+Epoch 34/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0229 - mean_absolute_error: 0.1493 - val_loss: 0.0432 - val_mean_absolute_error: 0.2192
+Epoch 35/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0268 - mean_absolute_error: 0.1627 - val_loss: 0.0577 - val_mean_absolute_error: 0.2627
+Epoch 36/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0222 - mean_absolute_error: 0.1467 - val_loss: 0.0460 - val_mean_absolute_error: 0.2151
+Epoch 37/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0169 - mean_absolute_error: 0.1248 - val_loss: 0.0439 - val_mean_absolute_error: 0.2121
+Epoch 38/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0165 - mean_absolute_error: 0.1233 - val_loss: 0.0457 - val_mean_absolute_error: 0.2125
+Epoch 39/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0155 - mean_absolute_error: 0.1195 - val_loss: 0.0449 - val_mean_absolute_error: 0.2111
+Epoch 40/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0151 - mean_absolute_error: 0.1176 - val_loss: 0.0466 - val_mean_absolute_error: 0.2170
+Epoch 41/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0148 - mean_absolute_error: 0.1158 - val_loss: 0.0444 - val_mean_absolute_error: 0.2072
+Epoch 42/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0147 - mean_absolute_error: 0.1168 - val_loss: 0.0449 - val_mean_absolute_error: 0.2098
+Epoch 43/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0150 - mean_absolute_error: 0.1163 - val_loss: 0.0444 - val_mean_absolute_error: 0.2092
+Epoch 44/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0145 - mean_absolute_error: 0.1139 - val_loss: 0.0447 - val_mean_absolute_error: 0.2096
+Epoch 45/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0142 - mean_absolute_error: 0.1146 - val_loss: 0.0464 - val_mean_absolute_error: 0.2141
+Epoch 46/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0137 - mean_absolute_error: 0.1098 - val_loss: 0.0437 - val_mean_absolute_error: 0.2065
+Epoch 47/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0135 - mean_absolute_error: 0.1109 - val_loss: 0.0442 - val_mean_absolute_error: 0.2085
+Epoch 48/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0131 - mean_absolute_error: 0.1082 - val_loss: 0.0458 - val_mean_absolute_error: 0.2119
+Epoch 49/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0137 - mean_absolute_error: 0.1101 - val_loss: 0.0446 - val_mean_absolute_error: 0.2084
+Epoch 50/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0135 - mean_absolute_error: 0.1098 - val_loss: 0.0477 - val_mean_absolute_error: 0.2167
+Epoch 51/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0133 - mean_absolute_error: 0.1099 - val_loss: 0.0448 - val_mean_absolute_error: 0.2076
+Epoch 52/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0127 - mean_absolute_error: 0.1066 - val_loss: 0.0446 - val_mean_absolute_error: 0.2079
+Epoch 53/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0131 - mean_absolute_error: 0.1090 - val_loss: 0.0443 - val_mean_absolute_error: 0.2083
+Epoch 54/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0134 - mean_absolute_error: 0.1096 - val_loss: 0.0454 - val_mean_absolute_error: 0.2098
+Epoch 55/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0127 - mean_absolute_error: 0.1067 - val_loss: 0.0449 - val_mean_absolute_error: 0.2098
+Epoch 56/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0127 - mean_absolute_error: 0.1055 - val_loss: 0.0448 - val_mean_absolute_error: 0.2090
+Epoch 57/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0127 - mean_absolute_error: 0.1075 - val_loss: 0.0448 - val_mean_absolute_error: 0.2092
+Epoch 58/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0121 - mean_absolute_error: 0.1052 - val_loss: 0.0445 - val_mean_absolute_error: 0.2084
+Epoch 59/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0120 - mean_absolute_error: 0.1022 - val_loss: 0.0440 - val_mean_absolute_error: 0.2063
+Epoch 60/60
+1269/1269 [==============================] - 1s 1ms/step - loss: 0.0122 - mean_absolute_error: 0.1040 - val_loss: 0.0446 - val_mean_absolute_error: 0.2073
+combined train MAE:  0.09577109
+combined train RMSE:  0.15073357530059267
+combined test MAE:  0.20730759
+combined test RMSE:  0.3137416847426544
+readenergyb_test3_all2p_backup4_backup2.py:146: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3], output=out)
+('mean_absolute_error', 0.1885952204465866)
+readenergyb_test3_all2p_backup4_backup2.py:146: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3], output=out)
+('mean_absolute_error', 0.20683009922504425)
+readenergyb_test3_all2p_backup4_backup2.py:146: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3], output=out)
+('mean_absolute_error', 0.2265099436044693)
+readenergyb_test3_all2p_backup4_backup2.py:146: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3], output=out)
+('mean_absolute_error', 0.21817678213119507)
+readenergyb_test3_all2p_backup4_backup2.py:146: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3], output=out)
+('mean_absolute_error', 0.20632053911685944)
+(0.20928651690483094, 0.012795655545943538)
+--- 527.5953204631805 seconds ---

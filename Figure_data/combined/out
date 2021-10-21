@@ -1,0 +1,85 @@
+37247
+['index: ', 4, 'filename: ', '1_screen/4/DOS9', 'reaction: ', '0.5H2(g) + * -> H*', 'site: ', '{"H": "bridge|A_A|B"}', 'surface: ', ['Pt', 'Pt', 'Pt', 'Ti', 'Pt', 'Pt', 'Pt', 'Ti', 'Pt', 'Pt', 'Pt', 'Ti']]
+35938
+[6975, 5342, 23621]
+float32
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:4074: The name tf.nn.avg_pool is deprecated. Please use tf.nn.avg_pool2d instead.
+
+/global/cscratch1/sd/vfung/1_screen_copy/readenergyb_test3_all2p_backup4_backup3_branch.py:190: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3, input4], output=out)
+Model: "model_4"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_3 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_4 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_5 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_6 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+model_1 (Model)                 (None, 4, 150)       155200      input_3[0][0]
+                                                                 input_4[0][0]
+                                                                 input_5[0][0]
+__________________________________________________________________________________________________
+model_3 (Model)                 (None, 4, 150)       155200      input_6[0][0]
+__________________________________________________________________________________________________
+concatenate_4 (Concatenate)     (None, 4, 600)       0           model_1[1][0]
+                                                                 model_1[2][0]
+                                                                 model_1[3][0]
+                                                                 model_3[1][0]
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 2400)         0           concatenate_4[0][0]
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 2400)         0           flatten_1[0][0]
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 200)          480200      dropout_1[0][0]
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 1000)         201000      dense_1[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 1000)         1001000     dense_2[0][0]
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 1)            1001        dense_3[0][0]
+==================================================================================================
+Total params: 1,993,601
+Trainable params: 1,993,401
+Non-trainable params: 200
+__________________________________________________________________________________________________
+2020-06-14 14:58:09.957853: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:422: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+Train on 28750 samples, validate on 7188 samples
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:198: The name tf.summary.histogram is deprecated. Please use tf.compat.v1.summary.histogram instead.
+
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:200: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:203: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
+
+Epoch 1/1
+28750/28750 [==============================] - 29s 994us/step - loss: 0.2030 - mean_absolute_error: 0.5052 - val_loss: 0.2971 - val_mean_absolute_error: 0.6743
+WARNING:tensorflow:From /global/homes/v/vfung/.local/cori/3.6-anaconda-5.2/lib/python3.6/site-packages/keras/callbacks/tensorboard_v1.py:343: The name tf.Summary is deprecated. Please use tf.compat.v1.Summary instead.
+
+ train MAE:  0.6768857
+ train RMSE:  0.8848101876259554
+ test MAE:  0.6742513
+ test RMSE:  0.8829714539148462
+/global/cscratch1/sd/vfung/1_screen_copy/readenergyb_test3_all2p_backup4_backup3_branch.py:190: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3, input4], output=out)
+('mean_absolute_error', 0.11554297059774399)
+/global/cscratch1/sd/vfung/1_screen_copy/readenergyb_test3_all2p_backup4_backup3_branch.py:190: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3, input4], output=out)
+('mean_absolute_error', 0.12164673209190369)
+/global/cscratch1/sd/vfung/1_screen_copy/readenergyb_test3_all2p_backup4_backup3_branch.py:190: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3, input4], output=out)
+('mean_absolute_error', 0.1145235151052475)
+/global/cscratch1/sd/vfung/1_screen_copy/readenergyb_test3_all2p_backup4_backup3_branch.py:190: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3, input4], output=out)
+('mean_absolute_error', 0.11676585674285889)
+/global/cscratch1/sd/vfung/1_screen_copy/readenergyb_test3_all2p_backup4_backup3_branch.py:190: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3, input4], output=out)
+('mean_absolute_error', 0.11333870887756348)
+(0.1163635566830635, 0.0028734163122191314)
+35938
+35938
+--- 7414.657247304916 seconds ---

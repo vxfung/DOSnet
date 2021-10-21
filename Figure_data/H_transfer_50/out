@@ -1,0 +1,197 @@
+Using TensorFlow backend.
+2020-07-03 14:41:31.755991: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-07-03 14:41:31.767235: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2300145000 Hz
+2020-07-03 14:41:31.770387: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2aacc0000b10 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-07-03 14:41:31.770401: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-07-03 14:41:31.797725: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-07-03 14:41:31.826001: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2020-07-03 14:41:31.826021: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (nid00063): /proc/driver/nvidia/version does not exist
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 6636859591424839435
+, name: "/device:XLA_CPU:0"
+device_type: "XLA_CPU"
+memory_limit: 17179869184
+locality {
+}
+incarnation: 11716028910228755924
+physical_device_desc: "device: XLA_CPU device"
+]
+2020-07-03 14:43:04.749411: I tensorflow/core/profiler/lib/profiler_session.cc:159] Profiler session started.
+/global/cscratch1/sd/vfung/1_screen_copy/readenergyb_test3_all2p_backup4_backup3_branch_production_transfer.py:116: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model=Model(input=[input1, input2, input3, input4], output=out)
+Model: "model_4"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_3 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_4 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_5 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+input_6 (InputLayer)            (None, 2000, 9)      0
+__________________________________________________________________________________________________
+model_1 (Model)                 (None, 4, 150)       155200      input_3[0][0]
+                                                                 input_4[0][0]
+                                                                 input_5[0][0]
+__________________________________________________________________________________________________
+model_3 (Model)                 (None, 4, 150)       155200      input_6[0][0]
+__________________________________________________________________________________________________
+concatenate_4 (Concatenate)     (None, 4, 600)       0           model_1[1][0]
+                                                                 model_1[2][0]
+                                                                 model_1[3][0]
+                                                                 model_3[1][0]
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 2400)         0           concatenate_4[0][0]
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 2400)         0           flatten_1[0][0]
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 200)          480200      dropout_1[0][0]
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 1000)         201000      dense_1[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 1000)         1001000     dense_2[0][0]
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 1)            1001        dense_3[0][0]
+==================================================================================================
+Total params: 1,993,601
+Trainable params: 1,993,401
+Non-trainable params: 200
+__________________________________________________________________________________________________
+Train on 32642 samples, validate on 3296 samples
+Epoch 1/60
+  256/32642 [..............................] - ETA: 2:42 - loss: 0.9918 - mean_absolute_error: 1.50632020-07-03 14:43:09.320457: I tensorflow/core/profiler/rpc/client/save_profile.cc:168] Creating directory: logs/1593812584.7493382/train/plugins/profile/2020_07_03_14_43_09
+2020-07-03 14:43:09.327900: I tensorflow/core/profiler/rpc/client/save_profile.cc:174] Dumped gzipped tool data for trace.json.gz to logs/1593812584.7493382/train/plugins/profile/2020_07_03_14_43_09/nid00063.trace.json.gz
+2020-07-03 14:43:09.332930: I tensorflow/core/profiler/utils/event_span.cc:288] Generation of step-events took 0.227 ms
+
+2020-07-03 14:43:09.347592: I tensorflow/python/profiler/internal/profiler_wrapper.cc:87] Creating directory: logs/1593812584.7493382/train/plugins/profile/2020_07_03_14_43_09Dumped tool data for overview_page.pb to logs/1593812584.7493382/train/plugins/profile/2020_07_03_14_43_09/nid00063.overview_page.pb
+Dumped tool data for input_pipeline.pb to logs/1593812584.7493382/train/plugins/profile/2020_07_03_14_43_09/nid00063.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to logs/1593812584.7493382/train/plugins/profile/2020_07_03_14_43_09/nid00063.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to logs/1593812584.7493382/train/plugins/profile/2020_07_03_14_43_09/nid00063.kernel_stats.pb
+32642/32642 [==============================] - 29s 902us/step - loss: 0.1685 - mean_absolute_error: 0.4606 - val_loss: 0.0787 - val_mean_absolute_error: 0.3148
+Epoch 2/60
+32642/32642 [==============================] - 28s 857us/step - loss: 0.0744 - mean_absolute_error: 0.3027 - val_loss: 0.0329 - val_mean_absolute_error: 0.1882
+Epoch 3/60
+32642/32642 [==============================] - 28s 856us/step - loss: 0.0610 - mean_absolute_error: 0.2722 - val_loss: 0.0237 - val_mean_absolute_error: 0.1606
+Epoch 4/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0530 - mean_absolute_error: 0.2507 - val_loss: 0.0160 - val_mean_absolute_error: 0.1189
+Epoch 5/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0436 - mean_absolute_error: 0.2266 - val_loss: 0.0207 - val_mean_absolute_error: 0.1452
+Epoch 6/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0517 - mean_absolute_error: 0.2474 - val_loss: 0.0204 - val_mean_absolute_error: 0.1434
+Epoch 7/60
+32642/32642 [==============================] - 28s 856us/step - loss: 0.0437 - mean_absolute_error: 0.2261 - val_loss: 0.0157 - val_mean_absolute_error: 0.1169
+Epoch 8/60
+32642/32642 [==============================] - 28s 854us/step - loss: 0.0361 - mean_absolute_error: 0.2050 - val_loss: 0.0139 - val_mean_absolute_error: 0.1092
+Epoch 9/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0336 - mean_absolute_error: 0.1976 - val_loss: 0.0140 - val_mean_absolute_error: 0.1175
+Epoch 10/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0324 - mean_absolute_error: 0.1945 - val_loss: 0.0169 - val_mean_absolute_error: 0.1321
+Epoch 11/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0437 - mean_absolute_error: 0.2225 - val_loss: 0.0124 - val_mean_absolute_error: 0.1056
+Epoch 12/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0310 - mean_absolute_error: 0.1898 - val_loss: 0.0147 - val_mean_absolute_error: 0.1252
+Epoch 13/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0292 - mean_absolute_error: 0.1835 - val_loss: 0.0165 - val_mean_absolute_error: 0.1343
+Epoch 14/60
+32642/32642 [==============================] - 28s 852us/step - loss: 0.0293 - mean_absolute_error: 0.1839 - val_loss: 0.0110 - val_mean_absolute_error: 0.0969
+Epoch 15/60
+32642/32642 [==============================] - 28s 854us/step - loss: 0.0276 - mean_absolute_error: 0.1789 - val_loss: 0.0147 - val_mean_absolute_error: 0.1192
+Epoch 16/60
+32642/32642 [==============================] - 28s 855us/step - loss: 0.0225 - mean_absolute_error: 0.1592 - val_loss: 0.0092 - val_mean_absolute_error: 0.0895
+Epoch 17/60
+32642/32642 [==============================] - 28s 856us/step - loss: 0.0215 - mean_absolute_error: 0.1559 - val_loss: 0.0092 - val_mean_absolute_error: 0.0884
+Epoch 18/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0200 - mean_absolute_error: 0.1507 - val_loss: 0.0108 - val_mean_absolute_error: 0.0987
+Epoch 19/60
+32642/32642 [==============================] - 28s 849us/step - loss: 0.0305 - mean_absolute_error: 0.1809 - val_loss: 0.0106 - val_mean_absolute_error: 0.1025
+Epoch 20/60
+32642/32642 [==============================] - 28s 852us/step - loss: 0.0225 - mean_absolute_error: 0.1592 - val_loss: 0.0093 - val_mean_absolute_error: 0.0945
+Epoch 21/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0199 - mean_absolute_error: 0.1497 - val_loss: 0.0113 - val_mean_absolute_error: 0.1126
+Epoch 22/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0223 - mean_absolute_error: 0.1587 - val_loss: 0.0084 - val_mean_absolute_error: 0.0917
+Epoch 23/60
+32642/32642 [==============================] - 28s 856us/step - loss: 0.0189 - mean_absolute_error: 0.1465 - val_loss: 0.0084 - val_mean_absolute_error: 0.0923
+Epoch 24/60
+32642/32642 [==============================] - 28s 852us/step - loss: 0.0178 - mean_absolute_error: 0.1415 - val_loss: 0.0080 - val_mean_absolute_error: 0.0884
+Epoch 25/60
+32642/32642 [==============================] - 28s 854us/step - loss: 0.0197 - mean_absolute_error: 0.1491 - val_loss: 0.0080 - val_mean_absolute_error: 0.0893
+Epoch 26/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0170 - mean_absolute_error: 0.1388 - val_loss: 0.0116 - val_mean_absolute_error: 0.1093
+Epoch 27/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0175 - mean_absolute_error: 0.1405 - val_loss: 0.0077 - val_mean_absolute_error: 0.0881
+Epoch 28/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0185 - mean_absolute_error: 0.1441 - val_loss: 0.0087 - val_mean_absolute_error: 0.0929
+Epoch 29/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0173 - mean_absolute_error: 0.1400 - val_loss: 0.0082 - val_mean_absolute_error: 0.0930
+Epoch 30/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0161 - mean_absolute_error: 0.1349 - val_loss: 0.0070 - val_mean_absolute_error: 0.0847
+Epoch 31/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0158 - mean_absolute_error: 0.1333 - val_loss: 0.0118 - val_mean_absolute_error: 0.1189
+Epoch 32/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0195 - mean_absolute_error: 0.1493 - val_loss: 0.0067 - val_mean_absolute_error: 0.0817
+Epoch 33/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0169 - mean_absolute_error: 0.1383 - val_loss: 0.0072 - val_mean_absolute_error: 0.0877
+Epoch 34/60
+32642/32642 [==============================] - 28s 852us/step - loss: 0.0175 - mean_absolute_error: 0.1403 - val_loss: 0.0076 - val_mean_absolute_error: 0.0902
+Epoch 35/60
+32642/32642 [==============================] - 28s 857us/step - loss: 0.0152 - mean_absolute_error: 0.1316 - val_loss: 0.0069 - val_mean_absolute_error: 0.0863
+Epoch 36/60
+32642/32642 [==============================] - 28s 855us/step - loss: 0.0118 - mean_absolute_error: 0.1143 - val_loss: 0.0061 - val_mean_absolute_error: 0.0788
+Epoch 37/60
+32642/32642 [==============================] - 28s 852us/step - loss: 0.0130 - mean_absolute_error: 0.1192 - val_loss: 0.0056 - val_mean_absolute_error: 0.0752
+Epoch 38/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0111 - mean_absolute_error: 0.1107 - val_loss: 0.0056 - val_mean_absolute_error: 0.0755
+Epoch 39/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0111 - mean_absolute_error: 0.1110 - val_loss: 0.0057 - val_mean_absolute_error: 0.0764
+Epoch 40/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0108 - mean_absolute_error: 0.1089 - val_loss: 0.0057 - val_mean_absolute_error: 0.0758
+Epoch 41/60
+32642/32642 [==============================] - 28s 849us/step - loss: 0.0107 - mean_absolute_error: 0.1087 - val_loss: 0.0057 - val_mean_absolute_error: 0.0760
+Epoch 42/60
+32642/32642 [==============================] - 28s 854us/step - loss: 0.0105 - mean_absolute_error: 0.1076 - val_loss: 0.0057 - val_mean_absolute_error: 0.0755
+Epoch 43/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0103 - mean_absolute_error: 0.1064 - val_loss: 0.0056 - val_mean_absolute_error: 0.0750
+Epoch 44/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0103 - mean_absolute_error: 0.1065 - val_loss: 0.0058 - val_mean_absolute_error: 0.0772
+Epoch 45/60
+32642/32642 [==============================] - 28s 848us/step - loss: 0.0103 - mean_absolute_error: 0.1064 - val_loss: 0.0055 - val_mean_absolute_error: 0.0749
+Epoch 46/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0098 - mean_absolute_error: 0.1035 - val_loss: 0.0057 - val_mean_absolute_error: 0.0765
+Epoch 47/60
+32642/32642 [==============================] - 28s 849us/step - loss: 0.0099 - mean_absolute_error: 0.1042 - val_loss: 0.0057 - val_mean_absolute_error: 0.0757
+Epoch 48/60
+32642/32642 [==============================] - 28s 849us/step - loss: 0.0096 - mean_absolute_error: 0.1027 - val_loss: 0.0055 - val_mean_absolute_error: 0.0744
+Epoch 49/60
+32642/32642 [==============================] - 28s 854us/step - loss: 0.0094 - mean_absolute_error: 0.1019 - val_loss: 0.0055 - val_mean_absolute_error: 0.0743
+Epoch 50/60
+32642/32642 [==============================] - 28s 849us/step - loss: 0.0098 - mean_absolute_error: 0.1033 - val_loss: 0.0053 - val_mean_absolute_error: 0.0731
+Epoch 51/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0095 - mean_absolute_error: 0.1024 - val_loss: 0.0055 - val_mean_absolute_error: 0.0741
+Epoch 52/60
+32642/32642 [==============================] - 28s 857us/step - loss: 0.0096 - mean_absolute_error: 0.1022 - val_loss: 0.0055 - val_mean_absolute_error: 0.0744
+Epoch 53/60
+32642/32642 [==============================] - 28s 853us/step - loss: 0.0093 - mean_absolute_error: 0.1013 - val_loss: 0.0055 - val_mean_absolute_error: 0.0742
+Epoch 54/60
+32642/32642 [==============================] - 28s 849us/step - loss: 0.0094 - mean_absolute_error: 0.1012 - val_loss: 0.0053 - val_mean_absolute_error: 0.0731
+Epoch 55/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0093 - mean_absolute_error: 0.1008 - val_loss: 0.0058 - val_mean_absolute_error: 0.0771
+Epoch 56/60
+32642/32642 [==============================] - 28s 851us/step - loss: 0.0090 - mean_absolute_error: 0.0989 - val_loss: 0.0054 - val_mean_absolute_error: 0.0735
+Epoch 57/60
+32642/32642 [==============================] - 28s 850us/step - loss: 0.0089 - mean_absolute_error: 0.0987 - val_loss: 0.0054 - val_mean_absolute_error: 0.0733
+Epoch 58/60
+32642/32642 [==============================] - 28s 855us/step - loss: 0.0089 - mean_absolute_error: 0.0984 - val_loss: 0.0054 - val_mean_absolute_error: 0.0734
+Epoch 59/60
+32642/32642 [==============================] - 28s 852us/step - loss: 0.0088 - mean_absolute_error: 0.0983 - val_loss: 0.0054 - val_mean_absolute_error: 0.0735
+Epoch 60/60
+32642/32642 [==============================] - 28s 856us/step - loss: 0.0089 - mean_absolute_error: 0.0984 - val_loss: 0.0054 - val_mean_absolute_error: 0.0731
+train MAE:  0.084387824
+train RMSE:  0.11961752389747546
+test MAE:  0.07308608
+test RMSE:  0.10476224529723327
